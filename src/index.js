@@ -1,10 +1,11 @@
 const defaults = {
-  mime: 'data:text/csv;charset=utf-8;',
+  mime: 'text/csv,charset=UTF-8',
   fileName: 'data.csv',
   columns: [],
   data: [],
   el: null,
   auto: true,
+  utf8: true,
 };
 
 const extend = (target, ...args) => {
@@ -25,7 +26,7 @@ const escapeContent = content => {
 const toCSV = options => {
   let opts = extend({}, defaults, options);
 
-  let head = '';
+  let head = opts.utf8 ? '\ufeff' : '';
   opts.columns.map(d => {
     head += d.title + ','
   });

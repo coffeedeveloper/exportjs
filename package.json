@@ -1,6 +1,6 @@
 {
   "name": "exportjs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "export js array to csv file",
   "main": "build/exportjs.js",
   "scripts": {
