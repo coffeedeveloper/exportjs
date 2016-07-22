@@ -54,5 +54,4 @@ ExportJS.toCSV({
 
 ##### 导出效果预览
 
-![exportjs-mac](http://
-oap12gnk8.bkt.clouddn.com/exportjs-mac.png)
+![exportjs-mac](http://oap12gnk8.bkt.clouddn.com/exportjs-mac.png)
