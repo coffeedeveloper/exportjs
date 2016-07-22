@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
     <meta name="render" content="webkit">
-    <title>export csv</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="wap-font-scale" content="no">
+    <title></title>
   </head>
   <body>
-    <a href="javascript:;" id="xxoo">export</a>
+    <button>点击下载</button>
     <script type="text/javascript" src="../lib/index.js"></script>
     <script type="text/javascript">
-      console.log(ExportJS.support());
-      ExportJS.toCSV({
-        el: document.getElementById('xxoo'),
-        columns: [
-          { title: 'ID', key: 'id' },
-          { title: '名称', key: 'name' },
-        ],
-        data: [
-          { id: 1, name: '小明,ah'},
-          { id: 2, name: '小红'},
-        ]
+      document.querySelector('button').addEventListener('click', function(e) {
+        ExportJS.toCSV({
+          columns: [
+            { title: 'ID', key: 'id' },
+            { title: '名称', key: 'name' },
+            { title: '网址', key: 'url' },
+          ],
+          data: [
+            { id: 1, name: '腾讯', url: 'http://qq.com' },
+            { id: 2, name: '网易', url: 'http://163.com' },
+          ]
+        })
       });
     </script>
   </body>

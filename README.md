@@ -1,5 +1,5 @@
 # ExportJS
-`ExportJS`可以将`JS`中的数组对象输出成`CSV`文件
+`ExportJS`可以将`JS`中的数组对象输出成`CSV`文件，解决了`CSV`的中文编码问题，常见的转码问题。
 
 ## API
 
@@ -40,14 +40,19 @@
 
 ```js
 ExportJS.toCSV({
-    el: document.getElementById('xxoo'),
-    columns: [
-        { title: 'ID', key: 'id' },
-        { title: '名称', key: 'name' },
-        ],
-    data: [
-        { id: 1, name: '小明,ah'},
-         { id: 2, name: '小红'},
-    ]
+  columns: [
+    { title: 'ID', key: 'id' },
+    { title: '名称', key: 'name' },
+    { title: '网址', key: 'url' },
+  ],
+  data: [
+    { id: 1, name: '腾讯', url: 'http://qq.com' },
+    { id: 2, name: '网易', url: 'http://163.com' },
+  ]
 });
 ```
+
+##### 导出效果预览
+
+![exportjs-mac](http://
+oap12gnk8.bkt.clouddn.com/exportjs-mac.png)
