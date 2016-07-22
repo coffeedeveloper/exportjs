@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Exportjs by coffeedeveloper</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Exportjs</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/coffeedeveloper/exportjs">View the Project on GitHub <small>coffeedeveloper/exportjs</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/coffeedeveloper/exportjs/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/coffeedeveloper/exportjs/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/coffeedeveloper/exportjs">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="exportjs" class="anchor" href="#exportjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ExportJS</h1>
+
+<p><code>ExportJS</code>可以将<code>JS</code>中的数组对象输出成<code>CSV</code>文件</p>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
+
+<h3>
+<a id="tocsv" class="anchor" href="#tocsv" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>toCSV</h3>
+
+<h4>
+<a id="参数说明" class="anchor" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>参数说明</h4>
+
+<h5>
+<a id="el-dom-element" class="anchor" href="#el-dom-element" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>el (DOM Element)</h5>
+
+<p>设置<code>a</code>标签的<code>href</code>和<code>download</code>属性，随后点击<code>a</code>标签就会激发下载</p>
+
+<h5>
+<a id="filename-string" class="anchor" href="#filename-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>fileName (String)</h5>
+
+<p>设置下载的<code>CSV</code>文件名，默认为<strong>data.csv</strong></p>
+
+<h5>
+<a id="auto-boolean" class="anchor" href="#auto-boolean" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>auto (Boolean)</h5>
+
+<p>是否自动启动下载，默认为<strong>true</strong></p>
+
+<h5>
+<a id="mime-string" class="anchor" href="#mime-string" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>mime (String)</h5>
+
+<p>导出文件的<code>mime</code>，默认为<strong>data:text/csv;charset=utf-8;</strong></p>
+
+<h5>
+<a id="columns-array" class="anchor" href="#columns-array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>columns (Array)</h5>
+
+<p>导出文件的标题，以及对应的<code>data</code>的属性值，示例:</p>
+
+<ul>
+<li>title: 标题</li>
+<li>key: 对应<code>data</code>里面的属性名</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre>[
+    { title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>ID<span class="pl-pds">'</span></span>, key<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span> },
+    { title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>名称<span class="pl-pds">'</span></span>, key<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span> },
+    { title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>年龄<span class="pl-pds">'</span></span>, key<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>age<span class="pl-pds">'</span></span> },
+]</pre></div>
+
+<h5>
+<a id="data-array" class="anchor" href="#data-array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>data (Array)</h5>
+
+<p>导出数据的对象数组，其中对象的属性名和<code>columns</code>里面的<code>key</code>值对应</p>
+
+<h4>
+<a id="示例" class="anchor" href="#%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>示例</h4>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">ExportJS</span>.<span class="pl-en">toCSV</span>({
+    el<span class="pl-k">:</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>xxoo<span class="pl-pds">'</span></span>),
+    columns<span class="pl-k">:</span> [
+        { title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>ID<span class="pl-pds">'</span></span>, key<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span> },
+        { title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>名称<span class="pl-pds">'</span></span>, key<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span> },
+        ],
+    data<span class="pl-k">:</span> [
+        { id<span class="pl-k">:</span> <span class="pl-c1">1</span>, name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>小明,ah<span class="pl-pds">'</span></span>},
+         { id<span class="pl-k">:</span> <span class="pl-c1">2</span>, name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>小红<span class="pl-pds">'</span></span>},
+    ]
+});</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/coffeedeveloper">coffeedeveloper</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

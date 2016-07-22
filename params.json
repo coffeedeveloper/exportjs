@@ -1,0 +1,6 @@
+{
+  "name": "Exportjs",
+  "tagline": "",
+  "body": "# ExportJS\r\n`ExportJS`可以将`JS`中的数组对象输出成`CSV`文件\r\n\r\n## API\r\n\r\n### toCSV\r\n\r\n#### 参数说明\r\n\r\n##### el (DOM Element)\r\n设置`a`标签的`href`和`download`属性，随后点击`a`标签就会激发下载\r\n\r\n##### fileName (String)\r\n设置下载的`CSV`文件名，默认为**data.csv**\r\n\r\n##### auto (Boolean)\r\n是否自动启动下载，默认为**true**\r\n\r\n##### mime (String)\r\n导出文件的`mime`，默认为**data:text/csv;charset=utf-8;**\r\n\r\n##### columns (Array)\r\n导出文件的标题，以及对应的`data`的属性值，示例:\r\n\r\n- title: 标题\r\n- key: 对应`data`里面的属性名\r\n\r\n```js\r\n[\r\n    { title: 'ID', key: 'id' },\r\n    { title: '名称', key: 'name' },\r\n    { title: '年龄', key: 'age' },\r\n]\r\n```\r\n\r\n##### data (Array)\r\n导出数据的对象数组，其中对象的属性名和`columns`里面的`key`值对应\r\n\r\n#### 示例\r\n\r\n```js\r\nExportJS.toCSV({\r\n    el: document.getElementById('xxoo'),\r\n    columns: [\r\n        { title: 'ID', key: 'id' },\r\n        { title: '名称', key: 'name' },\r\n        ],\r\n    data: [\r\n        { id: 1, name: '小明,ah'},\r\n         { id: 2, name: '小红'},\r\n    ]\r\n});\r\n```",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
