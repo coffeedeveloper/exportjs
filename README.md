@@ -1,6 +1,10 @@
 # ExportJS
 `ExportJS`可以将`JS`中的数组对象输出成`CSV`文件，解决了`CSV`的中文编码问题，常见的转码问题。
 
+## 兼容性
+提供了一个专门检查当前浏览器是否兼容`ExportJS`的API`ExportJS.support()`会返回一个`Boolean`，推荐在后台管理系统中使用。
+Safari、Firefox、Chrome新版均能够支持。
+
 ## API
 
 ### toCSV
