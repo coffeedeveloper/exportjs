@@ -66,13 +66,16 @@ const toCSV = options => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    link = null;
   }
 
-  // free ObjectUrl
+  // free memory
   setTimeout(() => {
     if ('revokeObjectURL' in URL) {
       URL.revokeObjectURL(objectUrl);
     }
+    content = null;
+    blob = null;
   }, 40000);
 
   return blob;
