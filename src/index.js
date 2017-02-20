@@ -51,21 +51,29 @@ const toCSV = options => {
   });
 
   let blob = new Blob([head + '\n' + content], { type: opts.mime });
+  let objectUrl = URL.createObjectURL(blob);
 
   if (opts.el) {
-    opts.el.setAttribute('href', URL.createObjectURL(blob));
+    opts.el.setAttribute('href', objectUrl);
     opts.el.setAttribute('download', opts.fileName);
   }
 
   if (opts.auto) {
     let link = document.createElement('a');
-    link.setAttribute('href', URL.createObjectURL(blob));
+    link.setAttribute('href', objectUrl);
     link.setAttribute('download', opts.fileName);
     link.style.visibility = 'hidden';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   }
+
+  // free ObjectUrl
+  setTimeout(() => {
+    if ('revokeObjectURL' in URL) {
+      URL.revokeObjectURL(objectUrl);
+    }
+  }, 40000);
 
   return blob;
 };
