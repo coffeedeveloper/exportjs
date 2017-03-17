@@ -6,16 +6,19 @@ const defaults = {
   el: null,
   auto: true,
   utf8: true,
+  warning: true,
 };
 
 const extend = (target, ...args) => {
-  for (let arg of args)
+  args.forEach((arg) => {
     for (let p in arg)
       target[p] = arg[p]
+  })
   return target;
 };
 
 const escapeContent = content => {
+  if (content == null || typeof content == 'undefined') content = '';
   content = String(content);
   content.replace(/"/g, '""');
   if (content.search(/("|,|\n)/g) > 0)
@@ -39,9 +42,8 @@ const toCSV = options => {
     } else if (typeof info == 'object'){
       let str = '';
       opts.columns.map(p => {
-        if (p.key in info) {
-          str += escapeContent(info[p.key]) + ',';
-        } else {
+        str += escapeContent(info[p.key]) + ',';
+        if (!(p.key in info) && opts.warning) {
           console.warn(`property ${p.key} didn't in `, info);
         }
       });
