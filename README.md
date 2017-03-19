@@ -5,6 +5,11 @@
 提供了一个专门检查当前浏览器是否兼容`ExportJS`的API`ExportJS.support()`会返回一个`Boolean`，推荐在后台管理系统中使用。
 Safari、Firefox、Chrome新版均能够支持。
 
+## 安装
+```
+npm install exportjs
+```
+
 ## API
 
 ### toCSV
