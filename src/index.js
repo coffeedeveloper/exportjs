@@ -91,6 +91,10 @@ const support = () => {
   return true;
 };
 
+// Export individual functions as named exports
+export { toCSV, support };
+
+// Keep the default export for backward compatibility
 export default {
   toCSV,
   support,

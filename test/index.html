@@ -8,13 +8,28 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <meta name="wap-font-scale" content="no">
-    <title></title>
+    <title>ExportJS Test</title>
   </head>
   <body>
-    <button>点击下载</button>
-    <script type="text/javascript" src="../lib/index.js"></script>
+    <h1>ExportJS Test</h1>
+    <p>This page demonstrates both ways of using the ExportJS library:</p>
+    <ol>
+      <li>Using the global ExportJS object (traditional way)</li>
+      <li>Using ES6 module imports (new way)</li>
+    </ol>
+    
+    <h2>Traditional Way</h2>
+    <button id="traditional">Download CSV (Traditional)</button>
+    
+    <h2>ES6 Module Way</h2>
+    <button id="module">Download CSV (ES6 Module)</button>
+    
+    <!-- Load the library using the traditional way -->
+    <script type="text/javascript" src="../lib/exportjs.js"></script>
+    
+    <!-- Traditional way usage -->
     <script type="text/javascript">
-      document.querySelector('button').addEventListener('click', function(e) {
+      document.querySelector('#traditional').addEventListener('click', function(e) {
         ExportJS.toCSV({
           columns: [
             { title: 'ID', key: 'id' },
@@ -22,10 +37,30 @@
             { title: '网址', key: 'url' },
           ],
           data: [
-            { id: 1, url: 'http://qq.com' },
-            { id: 2, url: 'http://163.com' },
+            { id: 1, name: 'QQ', url: 'http://qq.com' },
+            { id: 2, name: '163', url: 'http://163.com' },
           ]
-        })
+        });
+      });
+    </script>
+    
+    <!-- ES6 Module way usage -->
+    <script type="module">
+      // Import only the toCSV function
+      import { toCSV } from '../lib/index.js';
+      
+      document.querySelector('#module').addEventListener('click', function(e) {
+        toCSV({
+          columns: [
+            { title: 'ID', key: 'id' },
+            { title: '名称', key: 'name' },
+            { title: '网址', key: 'url' },
+          ],
+          data: [
+            { id: 1, name: 'QQ', url: 'http://qq.com' },
+            { id: 2, name: '163', url: 'http://163.com' },
+          ]
+        });
       });
     </script>
   </body>
