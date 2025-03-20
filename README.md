@@ -10,6 +10,37 @@ Safari、Firefox、Chrome新版均能够支持。
 npm install exportjs
 ```
 
+## 使用方式
+
+### 传统方式 (UMD)
+可以通过script标签直接引入:
+
+```html
+<script src="path/to/exportjs.js"></script>
+<script>
+  ExportJS.toCSV({
+    // options...
+  });
+</script>
+```
+
+### ES6 模块方式
+现在支持ES6模块导入，可以只导入需要的函数:
+
+```javascript
+// 导入整个库
+import ExportJS from 'exportjs';
+ExportJS.toCSV({
+  // options...
+});
+
+// 或者只导入需要的函数
+import { toCSV, support } from 'exportjs';
+toCSV({
+  // options...
+});
+```
+
 ## API
 
 ### toCSV
